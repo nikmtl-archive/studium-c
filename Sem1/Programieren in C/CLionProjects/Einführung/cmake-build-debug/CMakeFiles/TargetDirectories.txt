@@ -1,0 +1,3 @@
+C:/Users/Nik/Documents/DHBW Projekte/Programieren in C/CLionProjects/Einführung/cmake-build-debug/CMakeFiles/untitled.dir
+C:/Users/Nik/Documents/DHBW Projekte/Programieren in C/CLionProjects/Einführung/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Nik/Documents/DHBW Projekte/Programieren in C/CLionProjects/Einführung/cmake-build-debug/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="discription" content="Eine Webseite">
+    <meta name="author" content="Dominik">
+    <!-- <link rel="stylesheet" href="./css.css"> -->
+    <link rel="icon" type="image/jpg" href="./images/bild.jpg">
+    <title>Meine Webseite</title>
+</head>
+<body>
+    <h1>Hauptüberschrift</h1>
+    
+    <h2>Unterüberschrift 1</h2>
+    <p>Dies ist ein Abschnitt mit Text. <strong>Dieser Text ist hervorgehoben</strong> und hier ist ein <em>Zitat</em>.</p>
+    
+    <h2>Unterüberschrift 2</h2>
+    <p>Dies ist ein weiterer Abschnitt mit Text. <strong>Ein weiterer hervorgehobener Text</strong> und ein weiteres <em>Zitat</em>.</p>
+    
+    <h3>Unterüberschrift 3</h3>
+    <p>Dies ist ein dritter Abschnitt mit Text. <strong>Noch ein hervorgehobener Text</strong> und noch ein <em>Zitat</em>.</p>
+    
+    <h3>Geordnete Liste</h3>
+    <ol>
+        <li>Erstes Element</li>
+        <li>Zweites Element</li>
+        <li>Drittes Element</li>
+    </ol>
+    
+    <h3>Ungeordnete Liste</h3>
+    <ul>
+        <li>Erstes Element</li>
+        <li>Zweites Element</li>
+        <li>Drittes Element</li>
+    </ul>
+    
+    <h3>Definitionsliste</h3>
+    <dl>
+        <dt>Begriff 1</dt>
+        <dd>Definition 1</dd>
+        <dt>Begriff 2</dt>
+        <dd>Definition 2</dd>
+        <dt>Begriff 3</dt>
+        <dd>Definition 3</dd>
+    </dl>
+    
+    <h3>Tabelle mit vier Spalten und vier Zeilen</h3>
+    <table  border="1">
+        <thead>
+            <tr>
+                <th>Spalte 1</th>
+                <th>Spalte 2</th>
+                <th>Spalte 3</th>
+                <th>Spalte 4</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Zeile 1, Spalte 1</td>
+                <td>Zeile 1, Spalte 2</td>
+                <td>Zeile 1, Spalte 3</td>
+                <td>Zeile 1, Spalte 4</td>
+            </tr>
+            <tr>
+                <td>Zeile 2, Spalte 1</td>
+                <td>Zeile 2, Spalte 2</td>
+                <td>Zeile 2, Spalte 3</td>
+                <td>Zeile 2, Spalte 4</td>
+            </tr>
+            <tr>
+                <td>Zeile 3, Spalte 1</td>
+                <td>Zeile 3, Spalte 2</td>
+                <td>Zeile 3, Spalte 3</td>
+                <td>Zeile 3, Spalte 4</td>
+            </tr>
+            <tr>
+                <td>Zeile 4, Spalte 1</td>
+                <td>Zeile 4, Spalte 2</td>
+                <td>Zeile 4, Spalte 3</td>
+                <td>Zeile 4, Spalte 4</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3>Tabelle mit Zelle über mehrere Spalten</h3>
+    <table  border="1">
+        <tr>
+            <td colspan="3">Diese Zelle geht über drei Spalten</td>
+        </tr>
+        <tr>
+            <td>Spalte 1</td>
+            <td>Spalte 2</td>
+            <td>Spalte 3</td>
+        </tr>
+    </table>
+    
+    <h3>Tabelle mit Zelle über mehrere Zeilen</h3>
+    <table border="1">
+        <tr>
+            <td rowspan="2">Diese Zelle geht über zwei Zeilen</td>
+            <td>Spalte 2</td>
+        </tr>
+        <tr>
+            <td>Spalte 2</td>
+        </tr>
+    </table>
+    
+    <h3>Externer Link</h3>
+    <p>Hier ist ein <a href="https://www.google.com" target="_blank">Link zu Google</a>.</p>
+    
+    <h3>Bild</h3>
+    <a href="https://open.spotify.com/intl-de/track/5h68SoVFGleijCtjEja3xG?si=fe519ce0110b4e1e">
+        <img src="images/bild.jpg" alt="Beispielbild">
+    </a>
+    
+    <form>
+        <h3>Formular</h3>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <br>
+        <label for="email">E-Mail:</label>
+        <input type="email" id="email" name="email" required>
+        <br>
+        <label for="nachricht">Nachricht:</label>
+        <textarea id="nachricht" name="nachricht" required></textarea>
+        <br>
+        <input type="checkbox" id="newsletter" name="newsletter">
+        <label for="newsletter">Newsletter abonnieren</label>
+        <br>
+        <input type="submit">
+    </form>
+    
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/WJW-VvmRKsE?si=U9tpaGY0RZJoJRmT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5h68SoVFGleijCtjEja3xG?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</body>
+</html>

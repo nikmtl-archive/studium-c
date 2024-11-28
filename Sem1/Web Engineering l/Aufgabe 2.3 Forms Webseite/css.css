@@ -1,0 +1,138 @@
+:root {
+    --primary-color: #4c53af;
+    --secondary-color: #585fbb;
+    --background-color: #f0f0f0;
+    --popup-background-color: #333;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: var(--quaternary-color);
+}
+
+h2 {
+    margin-top: 0;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+select, button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input, textarea {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="color"] {
+    width: 100%;
+    background-color: white;
+}
+input[type="color"]::-webkit-color-swatch-wrapper {
+	padding: 0;
+}
+input[type="color"]::-webkit-color-swatch {
+	border: none;
+}
+
+input[type="range"] {
+    accent-color: var(--primary-color);
+}
+
+textarea {
+    resize: none;
+}
+
+#submit_button {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+#submit_button:hover {
+    background-color: var(--secondary-color);
+}
+
+fieldset {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+fieldset input {
+    margin: unset;
+    width: unset;
+}
+
+fieldset label {
+    margin: unset;
+    width: unset;
+    display: inline;
+    font-weight: normal;
+    margin-right: 10px;
+}
+legend {
+    font-weight: bold;
+}
+
+div {
+    margin-top: 20px;
+}
+
+p {
+    margin: 5px 0;
+}
+
+
+#new {
+    max-width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#geschmack_entscheidung {
+    display: flex;
+    margin: 0;
+}
+
+#geschmack_entscheidung fieldset {
+    flex: 1;
+    margin-right: 10px;
+}
+
+#kreativ{
+    margin: unset;
+    width: unset;
+}
+
+#kreativ_label{
+    display: inline;
+}

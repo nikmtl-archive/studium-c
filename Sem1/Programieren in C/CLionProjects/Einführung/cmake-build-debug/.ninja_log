@@ -1,0 +1,16 @@
+# ninja log v6
+102	206	7543423231865556	untitled.exe	27d726e4b11b613a
+40	524	7543513422091919	build.ninja	e1a4cf88514d5d40
+16	128	7519148781340741	CMakeFiles/untitled.dir/302-string_shuffle.c.obj	61ec67652c47981
+5	83	7519183993139760	CMakeFiles/untitled.dir/303-string_comparison.c.obj	36de6d1426c83ead
+39	218	7519093085000184	CMakeFiles/untitled.dir/301-eratosthenes.c.obj	fc0d00674d65f83f
+47	259	7525227624298068	CMakeFiles/untitled.dir/306-bullshit_generator.c.obj	9d925d66dd59dbba
+18	197	7525131711341560	CMakeFiles/untitled.dir/304-devowelizer.c.obj	74b73e3f1aebf05f
+34	199	7519237052435676	CMakeFiles/untitled.dir/305-matrices.c.obj	93972590ca6c77b6
+34	188	7525262552915911	CMakeFiles/untitled.dir/401-switch_case.c.obj	13b3072ae307cf33
+46	2032	7537309131927899	CMakeFiles/untitled.dir/501-game-of-life.c.obj	4e404693ac1aa76f
+40	286	7531248403716817	CMakeFiles/untitled.dir/402-number_puzzle.c.obj	3d18e33ab01314ac
+41	219	7531330277857483	CMakeFiles/untitled.dir/505-main-command-line-args.c.obj	f46887738f44d8f
+11	208	7543299396902268	CMakeFiles/untitled.dir/506-ackermann.c.obj	a0cdb02c631db3de
+45	1928	7543391515708802	CMakeFiles/untitled.dir/507-hanoi.c.obj	f0190c35d5a87c87
+20	101	7543423231032693	CMakeFiles/untitled.dir/601-address-list.c.obj	ada39db0584a018a
