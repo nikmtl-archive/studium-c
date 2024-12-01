@@ -15,7 +15,7 @@ Preprocessor directives:
 # define 	define a macro
 # undef 	undefine a macro
 # if		  conditional compilation
-# ifdef 	conditional compilation
+# ifdef 	conditional compilations
 # ifndef 	conditional compilation
 # elif 	 	conditional compilation
 # else 	 	conditional compilation
