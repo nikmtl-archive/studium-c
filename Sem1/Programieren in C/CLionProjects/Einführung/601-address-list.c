@@ -10,15 +10,14 @@
 //            - quit program
 //x TO DO 6: Extend the student data and the corresponding functions with the gender male/female (using "enum").
 //x TO DO 7: Create a structure for handling dates (day, month, year) and use it for birth date, date of enrollment etc.
-// TO DO 8: Extend the program such it also handles address information (street, number, zip-code and city).
+//x TO DO 8: Extend the program such it also handles address information (street, number, zip-code and city).
 // TO DO 9: optional: Add a function and menu item for deleting a selected student.
 // TO DO 10: optional: Add a function to sort the data according to given criteria
 
 #include <stdio.h>
+#include <stdlib.h>
 #define MAX_STUDENTS 100
 #define MAX_INPUT_LENGTH 30
-
-int student_count = 0;
 
 enum gender {
    male, female, other
@@ -46,17 +45,21 @@ struct person {
    struct address address;
 };
 
+int student_count = 0;
 struct person students[MAX_STUDENTS];
 
 void inputStudent(int i) {
+   system("cls");
+   printf("-------Add Student------\n");
+
    printf("Enter first name: ");
-   scanf("\n %s", students[i].first_name);
+   scanf("%30s", students[i].first_name);
    printf("Enter last name: ");
-   scanf("\n %s", students[i].last_name);
+   scanf("%30s", students[i].last_name);
 
    char gender_input;
    printf("Enter gender (m/f/o): ");
-   scanf("\n %c", &gender_input);
+   scanf("\n %1c", &gender_input);
    switch (gender_input) {
       case 'm':
          students[i].gender = male;
@@ -71,29 +74,31 @@ void inputStudent(int i) {
          printf("Wrong input\n");
    }
 
-   printf("Enter birth date day: ");
+   printf("Enter birth date \n");
+   printf("Day:");
    scanf("%d", &students[i].birth_date.day);
-   printf("Enter birth date month: ");
+   printf("Month:");
    scanf("%d", &students[i].birth_date.month);
-   printf("Enter birth date year: ");
+   printf("Year:");
    scanf("%d", &students[i].birth_date.year);
 
-   printf("Enter enrollment date day: ");
+   printf("Enter enrollment date \n");
+   printf("Day:");
    scanf("%d", &students[i].enrollment_date.day);
-   printf("Enter enrollment date month: ");
+   printf("Month:");
    scanf("%d", &students[i].enrollment_date.month);
-   printf("Enter enrollment date year: ");
+   printf("Year:");
    scanf("%d", &students[i].enrollment_date.year);
 
-   printf("Ender street: ");
-   scanf(" %[^\n]s", students[i].address.street);
-   getchar();
-   printf("Enter number: ");
+   printf("Ender address \n");
+   printf("Street: ");
+   scanf(" %30[^\n]s", students[i].address.street);
+   printf("Number: ");
    scanf(" %d", &students[i].address.number);
-   printf("Enter zip code: ");
+   printf("Zip code: ");
    scanf(" %d", &students[i].address.zip_code);
-   printf("Enter city: ");
-   scanf("\n %s", students[i].address.city);
+   printf("City: ");
+   scanf("%30s", students[i].address.city);
 }
 
 void addStudent() {
@@ -106,40 +111,83 @@ void addStudent() {
 }
 
 
-
 void printStudent(int i) {
-   printf("Student %d| %s %s", i, students[i].first_name, students[i].last_name);
+   printf("Student %d \t| %s %s", i+1, students[i].first_name, students[i].last_name);
    switch (students[i].gender) {
       case male:
-         printf(", Male");
+         printf("\t| Male \t");
       break;
       case female:
-         printf(", Female");
+         printf("\t| Female");
       break;
       case other:
-         printf(", Other");
+         printf("\t| Other\t");
       break;
    }
-   printf(", Birth: %d.%d.%d", students[i].birth_date.day, students[i].birth_date.month, students[i].birth_date.year);
-   printf(", Enrollment: %d.%d.%d", students[i].enrollment_date.day, students[i].enrollment_date.month, students[i].enrollment_date.year);
-   printf(", Address: %s %d, %d %s", students[i].address.street, students[i].address.number, students[i].address.zip_code, students[i].address.city);
+   printf("\t| Birth: %d.%d.%d", students[i].birth_date.day, students[i].birth_date.month, students[i].birth_date.year);
+   printf("\t| Enrollment: %d.%d.%d", students[i].enrollment_date.day, students[i].enrollment_date.month, students[i].enrollment_date.year);
+   printf("\t| Address: %s %d, %d %s", students[i].address.street, students[i].address.number, students[i].address.zip_code, students[i].address.city);
    printf("\n");
 }
 
 void printAllStudents() {
+   system("cls");
+   printf("--------------------------------------Students-------------------------------------\n");
    for (int i = 0; i < student_count; i++) {
       printStudent(i);
    }
+   printf("\n Press enter to continue...");
+   getchar(); // remove input buffer
+   getchar(); // wait for user enter
+}
+
+void deleteStudent() {
+   int student_id;
+   system("cls");
+   printf("-------Delete Student------\n");
+   printf("Enter student id to delete: ");
+   scanf("%d", &student_id);
+   if (student_id < student_count) {
+      for (int i = student_id; i < student_count; i++) {
+         students[i] = students[i+1];
+      }
+      student_count--;
+   } else {
+      printf("Student not found\n");
+   }
+   printf("\n Press enter to continue...");
+   getchar(); // remove input buffer
+   getchar(); // wait for user enter
+}
+
+void addDummyData(int count) {
+   count++;
+   for (int i = 0; i < count && i < MAX_STUDENTS; i++) {
+      snprintf(students[i].first_name, MAX_INPUT_LENGTH, "FirstName%d", i + 1);
+      snprintf(students[i].last_name, MAX_INPUT_LENGTH, "LastName%d", i + 1);
+      students[i].gender = (i % 3 == 0) ? male : (i % 3 == 1) ? female : other;
+      students[i].birth_date = (struct date){1 + (i % 28), 1 + (i % 12), 2000 + (i % 20)};
+      students[i].enrollment_date = (struct date){1 + (i % 28), 1 + (i % 12), 2020 + (i % 3)};
+      snprintf(students[i].address.street, MAX_INPUT_LENGTH, "Street%d", i + 1);
+      students[i].address.number = i + 1;
+      students[i].address.zip_code = 10000 + i;
+      snprintf(students[i].address.city, MAX_INPUT_LENGTH, "City%d", i + 1);
+   }
+   student_count = count < MAX_STUDENTS ? count : MAX_STUDENTS;
 }
 
 void menu() {
+   addDummyData(5);
    char choice = 0;
    while (1) {
-      printf("1: Add Student\n");
-      printf("2: Print all students\n");
-      printf("3: Quit\n");
-      printf("What do you want to do? ");
-      scanf("\n %c", &choice);
+      system("cls");
+      printf("-------MENU------\n");
+      printf("[1] Add Student\n");
+      printf("[2] Print all students\n");
+      printf("[3] Delete student\n");
+      printf("[4] Quit\n");
+      printf("> ");
+      scanf("%c", &choice);
       switch (choice) {
          case '1':
             addStudent();
@@ -148,11 +196,13 @@ void menu() {
             printAllStudents();
          break;
          case '3':
+            deleteStudent();
+         break;
+         case '4':
             return;
          default:
             printf("Wrong input\n");
       }
-      printf("************************\n");
    }
 }
 
