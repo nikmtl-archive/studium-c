@@ -11,6 +11,10 @@
    TO DO 8: What is the size of the following struct? Why? Can it be reduced?
 */
 
+enum test_enum {
+	one, two, three
+};
+
 struct test {
 	char a;  
 	int b;
@@ -19,6 +23,15 @@ struct test {
 }; 
 
 struct test my_test;
+
+int main() {
+	printf("Size of char: %lu\n", sizeof(char));
+	printf("Size of int: %lu\n", sizeof(int));
+	printf("Size of struct test: %lu\n", sizeof(struct test));
+	printf("Size of my_test: %lu\n", sizeof(my_test));
+    printf("Size of enum test_enum: %lu\n", sizeof(enum test_enum));
+	return 0;
+}
 
 
 
