@@ -1,23 +1,24 @@
-/* address_list.c */
-// This program should be completed such that it maintains a list of students
-//x TO DO 1: Write a function inputStudent(int i), which allows the user to enter first name and last name and stores it at position i in the array.
-//x TO DO 2: Use a variable to count the number of students stored in the array.
-//x TO DO 3: Write a function printStudent(i), which prints student i stored in the array
-//x TO DO 4: Write functions addStudent(), for adding a student at the first free position, and printAllStudents() for printing all students stored.
-//x TO DO 5: Write a function menu(), which allows the user to select one of the actions
-//            - add Student
-//            - print all students
-//            - quit program
-//x TO DO 6: Extend the student data and the corresponding functions with the gender male/female (using "enum").
-//x TO DO 7: Create a structure for handling dates (day, month, year) and use it for birth date, date of enrollment etc.
-//x TO DO 8: Extend the program such it also handles address information (street, number, zip-code and city).
-// TO DO 9: optional: Add a function and menu item for deleting a selected student.
-// TO DO 10: optional: Add a function to sort the data according to given criteria
-
+/* address_list.c
+ This program should be completed such that it maintains a list of students
+✓ TO DO 1: Write a function inputStudent(int i), which allows the user to enter first name and last name and stores it at position i in the array.
+✓ TO DO 2: Use a variable to count the number of students stored in the array.
+✓ TO DO 3: Write a function printStudent(i), which prints student i stored in the array
+✓ TO DO 4: Write functions addStudent(), for adding a student at the first free position, and printAllStudents() for printing all students stored.
+✓ TO DO 5: Write a function menu(), which allows the user to select one of the actions
+            - add Student
+            - print all students
+            - quit program
+✓ TO DO 6: Extend the student data and the corresponding functions with the gender male/female (using "enum").
+✓ TO DO 7: Create a structure for handling dates (day, month, year) and use it for birth date, date of enrollment etc.
+✓ TO DO 8: Extend the program such it also handles address information (street, number, zip-code and city).
+✓ TO DO 9: optional: Add a function and menu item for deleting a selected student.
+  TO DO 10: optional: Add a function to sort the data according to given criteria
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX_STUDENTS 100
 #define MAX_INPUT_LENGTH 30
+void addDummyData(int count);
 
 enum gender {
    male, female, other
@@ -160,21 +161,6 @@ void deleteStudent() {
    getchar(); // wait for user enter
 }
 
-void addDummyData(int count) {
-   count++;
-   for (int i = 0; i < count && i < MAX_STUDENTS; i++) {
-      snprintf(students[i].first_name, MAX_INPUT_LENGTH, "FirstName%d", i + 1);
-      snprintf(students[i].last_name, MAX_INPUT_LENGTH, "LastName%d", i + 1);
-      students[i].gender = (i % 3 == 0) ? male : (i % 3 == 1) ? female : other;
-      students[i].birth_date = (struct date){1 + (i % 28), 1 + (i % 12), 2000 + (i % 20)};
-      students[i].enrollment_date = (struct date){1 + (i % 28), 1 + (i % 12), 2020 + (i % 3)};
-      snprintf(students[i].address.street, MAX_INPUT_LENGTH, "Street%d", i + 1);
-      students[i].address.number = i + 1;
-      students[i].address.zip_code = 10000 + i;
-      snprintf(students[i].address.city, MAX_INPUT_LENGTH, "City%d", i + 1);
-   }
-   student_count = count < MAX_STUDENTS ? count : MAX_STUDENTS;
-}
 
 void menu() {
    addDummyData(5);
@@ -208,4 +194,22 @@ void menu() {
 
 int main() {
    menu();
+}
+
+
+
+void addDummyData(int count) {
+   count++;
+   for (int i = 0; i < count && i < MAX_STUDENTS; i++) {
+      snprintf(students[i].first_name, MAX_INPUT_LENGTH, "FirstName%d", i + 1);
+      snprintf(students[i].last_name, MAX_INPUT_LENGTH, "LastName%d", i + 1);
+      students[i].gender = (i % 3 == 0) ? male : (i % 3 == 1) ? female : other;
+      students[i].birth_date = (struct date){1 + (i % 28), 1 + (i % 12), 2000 + (i % 20)};
+      students[i].enrollment_date = (struct date){1 + (i % 28), 1 + (i % 12), 2020 + (i % 3)};
+      snprintf(students[i].address.street, MAX_INPUT_LENGTH, "Street%d", i + 1);
+      students[i].address.number = i + 1;
+      students[i].address.zip_code = 10000 + i;
+      snprintf(students[i].address.city, MAX_INPUT_LENGTH, "City%d", i + 1);
+   }
+   student_count = count < MAX_STUDENTS ? count : MAX_STUDENTS;
 }

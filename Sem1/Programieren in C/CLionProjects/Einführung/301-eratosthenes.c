@@ -1,9 +1,9 @@
-/* prime sieve of Eratosthenes */
-// TO DO 1: The program seems to work, but look carefully at the results -> There is a (typical) bug
-// TO DO 2: Extend it such that the maximum number n to be calculated can be entered by the user
-//          Use scanf("%d", &n)
-// TO DO 3: What does this mean for the array? How should the program be adapted to work reliably? 
-
+/* prime sieve of Eratosthenes
+✓  TO DO 1: The program seems to work, but look carefully at the results -> There is a (typical) bug
+✓  TO DO 2: Extend it such that the maximum number n to be calculated can be entered by the user
+          Use scanf("%d", &n)
+✓  TO DO 3: What does this mean for the array? How should the program be adapted to work reliably?
+*/
 #include <stdio.h>
 
 #define MAX 100000

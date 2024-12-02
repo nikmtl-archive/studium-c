@@ -1,10 +1,10 @@
-// Switch case: Order your burger...
-// TO DO 1: Replace the if-statements with switch case and add a default case for invalid input
-// TO DO 2: Add support for extra-large and fish burgers
-// TO DO 3: Extend the program such that is executed in a loop, which can be aborted by entering 'q' as size
-// TO DO 4: If there is a much longer list of options: How can long if-else-chains / switch-case-statements be avoided? //Use function pointers to handle different cases.
-// TO DO 5: Optional: Any further ideas for additional sizes and options?
-
+/* Switch case: Order your burger...
+✓ TO DO 1: Replace the if-statements with switch case and add a default case for invalid input
+✓ TO DO 2: Add support for extra-large and fish burgers
+✓ TO DO 3: Extend the program such that is executed in a loop, which can be aborted by entering 'q' as size
+✓ TO DO 4: If there is a much longer list of options: How can long if-else-chains / switch-case-statements be avoided? //Use function pointers to handle different cases.
+  TO DO 5: Optional: Any further ideas for additional sizes and options?
+*/
 #include <stdio.h>
 
 

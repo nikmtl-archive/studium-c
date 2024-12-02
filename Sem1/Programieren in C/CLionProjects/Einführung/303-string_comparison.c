@@ -1,6 +1,7 @@
-/* Compare two strings */
-// TO DO 1: This program does not always give the correct results. What is the problem? Correct it!
-// TO DO 2: Adapt the comparison such that it can be used for providing an ordering e.g. for phone books
+/* Compare two strings
+✓  TO DO 1: This program does not always give the correct results. What is the problem? Correct it!
+✓  TO DO 2: Adapt the comparison such that it can be used for providing an ordering e.g. for phone books
+*/
 
 #include <stdio.h>
 #include <string.h>

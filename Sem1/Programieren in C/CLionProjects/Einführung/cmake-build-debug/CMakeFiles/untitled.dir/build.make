@@ -68,28 +68,28 @@ include CMakeFiles/untitled.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/untitled.dir/flags.make
 
-CMakeFiles/untitled.dir/601-address-list.c.obj: CMakeFiles/untitled.dir/flags.make
-CMakeFiles/untitled.dir/601-address-list.c.obj: C:/Users/domin/Documents/studium/Sem1/Programieren\ in\ C/CLionProjects/Einführung/601-address-list.c
-CMakeFiles/untitled.dir/601-address-list.c.obj: CMakeFiles/untitled.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\domin\Documents\studium\Sem1\Programieren in C\CLionProjects\Einführung\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/untitled.dir/601-address-list.c.obj"
-	C:\Users\domin\AppData\Local\Programs\CLion\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/untitled.dir/601-address-list.c.obj -MF CMakeFiles\untitled.dir\601-address-list.c.obj.d -o CMakeFiles\untitled.dir\601-address-list.c.obj -c "C:\Users\domin\Documents\studium\Sem1\Programieren in C\CLionProjects\Einführung\601-address-list.c"
+CMakeFiles/untitled.dir/test.c.obj: CMakeFiles/untitled.dir/flags.make
+CMakeFiles/untitled.dir/test.c.obj: C:/Users/domin/Documents/studium/Sem1/Programieren\ in\ C/CLionProjects/Einführung/test.c
+CMakeFiles/untitled.dir/test.c.obj: CMakeFiles/untitled.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="C:\Users\domin\Documents\studium\Sem1\Programieren in C\CLionProjects\Einführung\cmake-build-debug\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/untitled.dir/test.c.obj"
+	C:\Users\domin\AppData\Local\Programs\CLion\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/untitled.dir/test.c.obj -MF CMakeFiles\untitled.dir\test.c.obj.d -o CMakeFiles\untitled.dir\test.c.obj -c "C:\Users\domin\Documents\studium\Sem1\Programieren in C\CLionProjects\Einführung\test.c"
 
-CMakeFiles/untitled.dir/601-address-list.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/untitled.dir/601-address-list.c.i"
-	C:\Users\domin\AppData\Local\Programs\CLion\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\domin\Documents\studium\Sem1\Programieren in C\CLionProjects\Einführung\601-address-list.c" > CMakeFiles\untitled.dir\601-address-list.c.i
+CMakeFiles/untitled.dir/test.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/untitled.dir/test.c.i"
+	C:\Users\domin\AppData\Local\Programs\CLion\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "C:\Users\domin\Documents\studium\Sem1\Programieren in C\CLionProjects\Einführung\test.c" > CMakeFiles\untitled.dir\test.c.i
 
-CMakeFiles/untitled.dir/601-address-list.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/untitled.dir/601-address-list.c.s"
-	C:\Users\domin\AppData\Local\Programs\CLion\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\domin\Documents\studium\Sem1\Programieren in C\CLionProjects\Einführung\601-address-list.c" -o CMakeFiles\untitled.dir\601-address-list.c.s
+CMakeFiles/untitled.dir/test.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/untitled.dir/test.c.s"
+	C:\Users\domin\AppData\Local\Programs\CLion\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "C:\Users\domin\Documents\studium\Sem1\Programieren in C\CLionProjects\Einführung\test.c" -o CMakeFiles\untitled.dir\test.c.s
 
 # Object files for target untitled
 untitled_OBJECTS = \
-"CMakeFiles/untitled.dir/601-address-list.c.obj"
+"CMakeFiles/untitled.dir/test.c.obj"
 
 # External object files for target untitled
 untitled_EXTERNAL_OBJECTS =
 
-untitled.exe: CMakeFiles/untitled.dir/601-address-list.c.obj
+untitled.exe: CMakeFiles/untitled.dir/test.c.obj
 untitled.exe: CMakeFiles/untitled.dir/build.make
 untitled.exe: CMakeFiles/untitled.dir/linkLibs.rsp
 untitled.exe: CMakeFiles/untitled.dir/objects1.rsp

@@ -1,6 +1,6 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/untitled.dir/601-address-list.c.obj"
-  "CMakeFiles/untitled.dir/601-address-list.c.obj.d"
+  "CMakeFiles/untitled.dir/test.c.obj"
+  "CMakeFiles/untitled.dir/test.c.obj.d"
   "libuntitled.dll.a"
   "untitled.exe"
   "untitled.exe.manifest"

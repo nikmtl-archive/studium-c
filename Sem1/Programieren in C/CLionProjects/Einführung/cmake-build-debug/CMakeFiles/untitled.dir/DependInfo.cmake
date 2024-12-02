@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "C:/Users/domin/Documents/studium/Sem1/Programieren in C/CLionProjects/Einführung/601-address-list.c" "CMakeFiles/untitled.dir/601-address-list.c.obj" "gcc" "CMakeFiles/untitled.dir/601-address-list.c.obj.d"
+  "C:/Users/domin/Documents/studium/Sem1/Programieren in C/CLionProjects/Einführung/test.c" "CMakeFiles/untitled.dir/test.c.obj" "gcc" "CMakeFiles/untitled.dir/test.c.obj.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

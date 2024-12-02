@@ -1,10 +1,10 @@
 /* number_puzzle.c 
    Write a number puzzle program by completing the TO DOs
-   TO DO 1: Initialize the puzzle, such that the numbers 1 to 15 are randomly distributed in the array.
+✓   TO DO 1: Initialize the puzzle, such that the numbers 1 to 15 are randomly distributed in the array.
             -1 should mark the empty field.
-   TO DO 2: get key and move pieces accordingly (if keystroke is valid)
-   TO DO 3: Check, if puzzle is in correct order -> set sorted=1
-   TO DO 4: Create a more fancy output, e.g. by creating frames around the numbers
+✓   TO DO 2: get key and move pieces accordingly (if keystroke is valid)
+✓   TO DO 3: Check, if puzzle is in correct order -> set sorted=1
+✓   TO DO 4: Create a more fancy output, e.g. by creating frames around the numbers
                 (Use a special character e.g. a block rather than '*')
                 (Also, mark the empty field rather than showing -1)
 

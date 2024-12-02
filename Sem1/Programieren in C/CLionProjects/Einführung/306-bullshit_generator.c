@@ -1,10 +1,10 @@
-// Generate 'bullshit sentences'
-// TO DO 1: In lines v=, n=, a=, ... rand%12? Why always 12? -> arraysize = 12
-// TO DO 2: Create more complex sentences e.g. by using more adjectives together or by concatenating several phrases.
-// TO DO 3: Generalize the 'You should' by allowing other random introductions, e.g. "we have to", "our company must"
-// TO DO 4: Don't write the output to the screen but copy the whole phrase into a separate string (without using library functions)
-// Source of words see: http://dack.com/web/bullshit.html
-
+/* Generate 'bullshit sentences'
+✓  TO DO 1: In lines v=, n=, a=, ... rand%12? Why always 12? -> arraysize = 12
+✓  TO DO 2: Create more complex sentences e.g. by using more adjectives together or by concatenating several phrases.
+✓  TO DO 3: Generalize the 'You should' by allowing other random introductions, e.g. "we have to", "our company must"
+✓  TO DO 4: Don't write the output to the screen but copy the whole phrase into a separate string (without using library functions)
+   Source of words see: http://dack.com/web/bullshit.html
+*/
 #include <stdio.h> 
 #include <stdlib.h>
 #include <time.h>

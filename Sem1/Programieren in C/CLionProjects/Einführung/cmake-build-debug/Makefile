@@ -128,29 +128,29 @@ untitled/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/build
 .PHONY : untitled/fast
 
-601-address-list.obj: 601-address-list.c.obj
-.PHONY : 601-address-list.obj
+test.obj: test.c.obj
+.PHONY : test.obj
 
 # target to build an object file
-601-address-list.c.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/601-address-list.c.obj
-.PHONY : 601-address-list.c.obj
+test.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/test.c.obj
+.PHONY : test.c.obj
 
-601-address-list.i: 601-address-list.c.i
-.PHONY : 601-address-list.i
+test.i: test.c.i
+.PHONY : test.i
 
 # target to preprocess a source file
-601-address-list.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/601-address-list.c.i
-.PHONY : 601-address-list.c.i
+test.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/test.c.i
+.PHONY : test.c.i
 
-601-address-list.s: 601-address-list.c.s
-.PHONY : 601-address-list.s
+test.s: test.c.s
+.PHONY : test.s
 
 # target to generate assembly for a file
-601-address-list.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/601-address-list.c.s
-.PHONY : 601-address-list.c.s
+test.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\untitled.dir\build.make CMakeFiles/untitled.dir/test.c.s
+.PHONY : test.c.s
 
 # Help Target
 help:
@@ -161,9 +161,9 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... untitled
-	@echo ... 601-address-list.obj
-	@echo ... 601-address-list.i
-	@echo ... 601-address-list.s
+	@echo ... test.obj
+	@echo ... test.i
+	@echo ... test.s
 .PHONY : help
 
 

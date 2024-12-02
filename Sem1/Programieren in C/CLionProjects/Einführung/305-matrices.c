@@ -1,7 +1,8 @@
-/* matrices */
-// TO DO 1: Extend the programm such that the result is printed
-// TO DO 2: Extend the programm such that it also calculates the product of the two 3x3 matrices.
-// TO DO 3: What happens when you make a mistake with the indices, e.g. read/write m1[3][0], m1[4][0], m1[0][4] etc.? --> Invalid access
+/* matrices
+✓  TO DO 1: Extend the programm such that the result is printed
+✓  TO DO 2: Extend the programm such that it also calculates the product of the two 3x3 matrices.
+✓  TO DO 3: What happens when you make a mistake with the indices, e.g. read/write m1[3][0], m1[4][0], m1[0][4] etc.? --> Invalid access
+*/
 
 #include <stdio.h>
 

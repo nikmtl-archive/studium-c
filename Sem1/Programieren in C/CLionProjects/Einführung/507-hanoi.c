@@ -1,7 +1,8 @@
-// hanoi.c Towers of hanoi
-// TO DO: Extend the programm such that it creates a graphical output of the disks on the three rods
-//        introduce a function display(), which is called from hanoi()
-//        Use global or static variables to keep the status of the disk towers.
+/* hanoi.c Towers of hanoi
+✓ TO DO: Extend the programm such that it creates a graphical output of the disks on the three rods
+        introduce a function display(), which is called from hanoi()
+        Use global or static variables to keep the status of the disk towers.
+ */
 
 #include <stdio.h>
 #include <stdlib.h>

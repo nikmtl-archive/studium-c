@@ -1,5 +1,5 @@
 /*
-TO DO 1: Use the preprocessor #define directive and modify your previous programs, 
+✓ TO DO 1: Use the preprocessor #define directive and modify your previous programs,
          - e.g. define constants such as maximum values / array sizes, shortcuts for special ascii characters etc.
          - Optionally, try to define macros by using parameters with #define.
          - What problems might occur with such macros (and how can they be solved?):
