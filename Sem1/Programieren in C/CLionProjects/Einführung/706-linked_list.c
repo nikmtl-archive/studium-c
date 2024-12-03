@@ -48,8 +48,7 @@ typedef struct myListItemStruct itemType;
 
 // create_item:
 // Creates and initializes a new item, or returns NULL, if it could not allocate memory.
-itemType *create_item()
-{
+itemType *create_item(){
    static int guid_ctr=0;    // static counter to create unique ids
    itemType *ptr;
 
@@ -66,8 +65,7 @@ itemType *create_item()
 
 // Insert_item:
 // Inserts an existing item into the (potentially empty) list
-void insert_item(itemType *new_item, itemType **list_ptr)
-{
+void insert_item(itemType *new_item, itemType **list_ptr){
 	new_item->next_item=*list_ptr;   // Append existing list to new item
 	*list_ptr=new_item;              // Set list_ptr to points to new item
 }
