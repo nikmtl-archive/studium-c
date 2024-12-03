@@ -4,5 +4,7 @@ project(untitled C)
 set(CMAKE_C_STANDARD 99)
 
 add_executable(untitled
+        702-pointers.c
+        703-malloc_eratosthenes.c
 
 )

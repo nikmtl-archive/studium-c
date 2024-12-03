@@ -6,9 +6,10 @@
 ✓  TO DO 3: Use & to determine the addresses of different variables in memory.
 ✓  TO DO 4: Can you see a difference of addresses for local and global variables?		Answer: Yes, the addresses of global variables are lower than the addresses of local variables. But the addresses of the global variables are not in order.
 ✓  TO DO 5: How are variables sorted in memory (increasing or decreasing addresses)?     Answer: The addresses of the variables are sorted in decreasing order.
-  TO DO 6: What about addresses of local variables in recursive functions (e.g. hanoi.c)?
+x  TO DO 6: What about addresses of local variables in recursive functions (e.g. hanoi.c)?
 ✓  TO DO 7: Can you find int variables stored at uneven addresses? How do you judge the result?	Answer: No, the addresses of the variables are stored at even addresses.
-  TO DO 8: What is the size of the following struct? Why? Can it be reduced?
+✓  TO DO 8: What is the size of the test_struct? Why? Can it be reduced?			Answer: The size of the test_struct is 12 bytes. It can be reduced by 4 bytes by changing the order of the variables.
+																							The padding is added because the compiler tries to align the int variables to be at even addresses.
 */
 
  #include <stdio.h>
@@ -30,6 +31,13 @@ struct test_struct {
 	int d;
 };
 
+struct test_struct_less_padding {
+	int d;
+	int b;
+	char a;
+	char c;
+};
+
 union test_union {
     char a;
     int b;
@@ -48,6 +56,11 @@ int main() {
     	test_struct.b = 1;
     	test_struct.c = 'b';
     	test_struct.d = 2;
+	struct test_struct_less_padding test_struct_less_padding;
+		test_struct_less_padding.a = 'a';
+		test_struct_less_padding.b = 1;
+		test_struct_less_padding.c = 'b';
+		test_struct_less_padding.d = 2;
     enum test_enum test_enum = one;
     union test_union test_union = {1};
     //Different variables for address comparison
@@ -73,6 +86,7 @@ int main() {
     printf("two-dimensional char array (10x10 elements): %llu bytes\n", sizeof(arr3));		// 100 bytes > 10 bytes * 10 elements
     printf("two-dimensional int array (10x10 elements): %llu bytes\n", sizeof(arr4));			// 400 bytes > 4 bytes * 10 elements * 10 elements
     printf("struct (2 char, 2 int): %llu bytes\n", sizeof(struct test_struct));				// 12 bytes > 1 byte + 3 bytes padding + 4 bytes + 4 bytes
+	printf("struct (2 char, 2 int) less padding: %llu bytes\n", sizeof(struct test_struct_less_padding));	// 8 bytes > 4 bytes + 4 bytes
     printf("enum: %llu bytes\n", sizeof(enum test_enum));										// 4 bytes
     printf("union (char/int): %llu bytes\n", sizeof(union test_union));						// 4 bytes > int
 
@@ -97,7 +111,7 @@ int main() {
     printf("float global_var3: %p\n", &global_var3);
     printf("double global_var4: %p\n", &global_var4);
 
-
+	return 0;
 }
 
 

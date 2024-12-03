@@ -1,19 +1,31 @@
-/* address_list.c
- This program should be completed such that it maintains a list of students
-✓ TO DO 1: Write a function inputStudent(int i), which allows the user to enter first name and last name and stores it at position i in the array.
-✓ TO DO 2: Use a variable to count the number of students stored in the array.
-✓ TO DO 3: Write a function printStudent(i), which prints student i stored in the array
-✓ TO DO 4: Write functions addStudent(), for adding a student at the first free position, and printAllStudents() for printing all students stored.
-✓ TO DO 5: Write a function menu(), which allows the user to select one of the actions
-            - add Student
-            - print all students
-            - quit program
-✓ TO DO 6: Extend the student data and the corresponding functions with the gender male/female (using "enum").
-✓ TO DO 7: Create a structure for handling dates (day, month, year) and use it for birth date, date of enrollment etc.
-✓ TO DO 8: Extend the program such it also handles address information (street, number, zip-code and city).
-✓ TO DO 9: optional: Add a function and menu item for deleting a selected student.
-  TO DO 10: optional: Add a function to sort the data according to given criteria
+/* pointers.c
+✓   TO DO 1:  Extend/modify the address_list.c program such that the student data is not stored
+             in a global but in local data structures in main.
+✓   TO DO 2:  Use pointers/call by reference to pass student data to the different functions.
+✓   TO DO 3:  use typedef to define a type for 'struct person' and use this type
+
 */
+
+/*
+void print_student(struct person *s){
+
+  printf("%s", (*s).first_name );
+  // as the notation (*s).firstname is somewhat clumsy, there is a special operator for this frequently used * . operation:
+  printf("%s", s->first_name );
+
+}
+
+int main()
+{
+
+  print_student(&students[i]);
+  // or simpler:
+  print_student(students+i);      // Note, that this addition of i to a pointer is special as it considers the size of type pointed to
+
+  ...
+}
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #define MAX_STUDENTS 100
@@ -37,26 +49,24 @@ struct address {
    char city[MAX_INPUT_LENGTH];
 };
 
-struct person {
+typedef struct person {
    char first_name[MAX_INPUT_LENGTH];
    char last_name[MAX_INPUT_LENGTH];
    enum gender gender;
    struct date birth_date;
    struct date enrollment_date;
    struct address address;
-};
+} person;
 
-int student_count = 0;
-struct person students[MAX_STUDENTS];
 
-void inputStudent(int i) {
+void inputStudent(int i, person *students) {
    system("cls");
    printf("-------Add Student------\n");
 
    printf("Enter first name: ");
-   scanf("%30s", students[i].first_name);
+   scanf("%30s", &students[i].first_name);
    printf("Enter last name: ");
-   scanf("%30s", students[i].last_name);
+   scanf("%30s", &students[i].last_name);
 
    char gender_input;
    printf("Enter gender (m/f/o): ");
@@ -104,19 +114,17 @@ void inputStudent(int i) {
    scanf("%30s", students[i].address.city);
 }
 
-void addStudent() {
-   if (student_count < MAX_STUDENTS) {
-      inputStudent(student_count);
-      student_count++;
+void addStudent(int *student_count, person *students) {
+   if (*student_count < MAX_STUDENTS) {
+      inputStudent(*student_count, students);
+      (*student_count)++;
    } else {
       printf("Student list is full.\n");
    }
 }
 
-void addDummyData(int count);
 
-
-void printStudent(int i) {
+void printStudent(int i,person *students) {
    printf("Student %d \t| %s %s", i+1, students[i].first_name, students[i].last_name);
    switch (students[i].gender) {
       case male:
@@ -135,25 +143,25 @@ void printStudent(int i) {
    printf("\n");
 }
 
-void printAllStudents() {
+void printAllStudents(int *student_count, person *students) {
    system("cls");
    printf("--------------------------------------Students-------------------------------------\n");
-   for (int i = 0; i < student_count; i++) {
-      printStudent(i);
+   for (int i = 0; i < *student_count; i++) {
+      printStudent(i, students);
    }
    printf("\n Press enter to continue...");
    getchar(); // remove input buffer
    getchar(); // wait for user enter
 }
 
-void deleteStudent() {
+void deleteStudent(int *student_count, struct person *students) {
    int student_id;
    system("cls");
    printf("-------Delete Student------\n");
    printf("Enter student id to delete: ");
    scanf("%d", &student_id);
-   if (student_id < student_count) {
-      for (int i = student_id; i < student_count; i++) {
+   if (student_id < *student_count) {
+      for (int i = student_id; i < *student_count; i++) {
          students[i] = students[i+1];
       }
       student_count--;
@@ -166,8 +174,7 @@ void deleteStudent() {
 }
 
 
-void menu() {
-   addDummyData(5);
+void menu(int *student_count, person *students) {
    char choice = 0;
    while (1) {
       system("cls");
@@ -180,13 +187,13 @@ void menu() {
       scanf("%c", &choice);
       switch (choice) {
          case '1':
-            addStudent();
+            addStudent(student_count, students);
          break;
          case '2':
-            printAllStudents();
+            printAllStudents(student_count, students);
          break;
          case '3':
-            deleteStudent();
+            deleteStudent(student_count, students);
          break;
          case '4':
             return;
@@ -197,23 +204,8 @@ void menu() {
 }
 
 int main() {
-   menu();
+   int student_count = 0;
+   person students[MAX_STUDENTS];
+   menu(&student_count, students);
 }
 
-
-
-void addDummyData(int count) {
-   count++;
-   for (int i = 0; i < count && i < MAX_STUDENTS; i++) {
-      snprintf(students[i].first_name, MAX_INPUT_LENGTH, "FirstName%d", i + 1);
-      snprintf(students[i].last_name, MAX_INPUT_LENGTH, "LastName%d", i + 1);
-      students[i].gender = (i % 3 == 0) ? male : (i % 3 == 1) ? female : other;
-      students[i].birth_date = (struct date){1 + (i % 28), 1 + (i % 12), 2000 + (i % 20)};
-      students[i].enrollment_date = (struct date){1 + (i % 28), 1 + (i % 12), 2020 + (i % 3)};
-      snprintf(students[i].address.street, MAX_INPUT_LENGTH, "Street%d", i + 1);
-      students[i].address.number = i + 1;
-      students[i].address.zip_code = 10000 + i;
-      snprintf(students[i].address.city, MAX_INPUT_LENGTH, "City%d", i + 1);
-   }
-   student_count = count < MAX_STUDENTS ? count : MAX_STUDENTS;
-}
