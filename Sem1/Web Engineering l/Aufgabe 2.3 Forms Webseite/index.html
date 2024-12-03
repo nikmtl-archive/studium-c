@@ -8,31 +8,35 @@
     <meta name="description" content="Ein Freundebuch Formular">
     <meta name="author" content="Dominik">
     <link rel="stylesheet" href="css.css">
+    <script src="js.js" defer></script>
+    <link rel="icon" type="image/png" href="logo.png">
 </head>
 
-<body>
+<body onload="onload()">
     <header>
+        <img src="logo.png" alt="logo" width="60">
         <h1>Mein Freundebuch</h1>
+        <button onclick="openNewEntryForm()">Neuer Eintrag</button>
     </header>
-    <div id="new">
-        <form>
+    <div id="new_entry" style="display: none;">
+        <form id="new_entry_form" onsubmit="addEntry(event)">
             <h2>Neuer Eintrag</h2>
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required><br>
+            <label for="geburtstag">Geburtstag:</label>
+            <input type="date" id="geburtstag" name="geburtstag"><br>
             <label for="email">Email:</label>
             <input type="email" id="email" name="email"><br>
             <label for="telefon">Telefon:</label>
             <input type="tel" id="telefon" name="telefon"><br>
-            <label for="geburtstag">Geburtstag:</label>
-            <input type="date" id="geburtstag" name="geburtstag"><br>
+            <label for="website">Website:</label>
+            <input type="url" id="website" name="website"><br>
             <label for="verhältnis">Verhältnis:</label>
             <select name="verhältnis" id="verhältnis">
                 <option value="" disabled selected>Bitte wählen</option>
                 <option value="freund">Freund</option>
                 <option value="familie">Familie</option>
             </select><br>
-            <label for="website">Website:</label>
-            <input type="url" id="website" name="website"><br>
 
             <label for="lieblingslied">Lieblings Lied:</label>
             <input type="text" id="lieblingslied" name="lieblingslied"><br>
@@ -56,7 +60,7 @@
             </fieldset><br>
             <div id="geschmack_entscheidung">
                 <fieldset>
-                    <legend>Entscheide dein Lieblingsessen</legend>
+                    <legend>Entscheide: Lieblingsessen</legend>
                     <input type="radio" name="lieblingsessen" id="pizza" value="pizza">
                     <label for="pizza">Pizza</label>
                     <input type="radio" name="lieblingsessen" id="burger" value="burger">
@@ -65,7 +69,7 @@
                     <label for="pasta">Pasta</label>
                 </fieldset><br>
                 <fieldset>
-                    <legend>Entscheide dein Lieblingsgetränk</legend>
+                    <legend>Entscheide: Lieblingsgetränk</legend>
                     <input type="radio" name="lieblingsgetränk" id="wasser" value="wasser">
                     <label for="wasser">Wasser</label>
                     <input type="radio" name="lieblingsgetränk" id="cola" value="cola">
@@ -82,29 +86,15 @@
             
             <label for="nachricht">Nachricht:</label>
             <textarea name="nachricht" id="nachricht" cols="30" rows="10"></textarea><br>
-
-            <label for="kreativ" id="kreativ_label">Kreativ?</label>
-            <input type="checkbox" id="kreativ" name="kreativ"><br>
-            <button id="submit_button" type="submit">Eintragen</button>
+            <div id="submit_buttons_div">
+                <button type="button" onclick="closeNewEntryForm()" id="cancel_button">Abbrechen</button>
+                <button type="submit">Eintragen</button>
+            </div>
         </form>
     </div>
-    <h3>Meine Freunde</h3>
-    <div>
-        <h4>Beispiel Eintrag</h4>
-        <p><strong>Name:</strong> Max Mustermann</p>
-        <p><strong>Email:</strong> max@mustermann.de</p>
-        <p><strong>Telefon:</strong> 01234 567890</p>
-        <p><strong>Geburtstag:</strong> 01.01.1990</p>
-        <p><strong>Verhältnis:</strong> Freund</p>
-        <p><strong>Website:</strong> <a href="http://www.mustermann.de">www.mustermann.de</a></p>
-        <p><strong>Lieblings Musik Lautstärke:</strong> 3</p>
-        <p><strong>Lieblingszeit:</strong> 12:00</p>
-        <p><strong>Lieblingsfarbe:</strong> <span style="background-color: #0000ff; color: white;">Blau</span></p>
-        <p><strong>Lieblingstier:</strong> Katze</p>
-        <p><strong>Lieblingsessen:</strong> Pizza</p>
-        <p><strong>Lieblingsgetränk:</strong> Wasser</p>
-        <p><strong>Lieblingsgeschichte:</strong> Es war einmal...</p>
-        <p><strong>Nachricht:</strong> Hallo, das ist ein Beispiel!</p>
+    <h2>Meine Freunde</h2>
+    <div id="entries">
+        <!-- Hier werden die Einträge eingefügt -->
     </div>
 </body>
 
