@@ -20,7 +20,7 @@
 			- the name, the address in memory and the address of its successor
             In addition, calculate the sum of all data payloads.
 ✓  TO DO 4: Write a function find_item(...) that searches the list for an item with a given guid.
-   TO DO 5: Change the program such that the memory required for 'data' can be allocated flexibly:
+✓  TO DO 5: Change the program such that the memory required for 'data' can be allocated flexibly:
             in struct: unsigned char *data;
 	        ptr->data=malloc(ptr->size*sizeof(unsigned char)); // Remember to check for NULL Pointer
    TO DO 6: (optional) Write a function delete_item(...) to delete an item from the list.
@@ -38,7 +38,7 @@
 struct myListItemStruct {
     int guid; // a unique id to identify the list item
     char name[128]; // a name to represent the item
-    unsigned char data[200]; // arbitrary data 'payload'
+    unsigned char *data; // arbitrary data 'payload'
     int size; // size of data
     struct myListItemStruct *next_item; // pointer to next item
 };
@@ -57,11 +57,15 @@ itemType *create_item() {
         ptr->guid = guid_ctr++; // Generate a unique ID
         printf("Enter name:");
         scanf("%s", ptr->name); // Enter a name
+        printf("Enter size of data:");
+        scanf("%d", &ptr->size); // Enter size of data
+        ptr->data = malloc(ptr->size * sizeof(unsigned char)); // Allocate memory for the data payload
+        if (ptr->data == NULL) {
+            free(ptr); // Free the memory of the list item
+            return NULL; // Return NULL, if memory allocation failed
+        }
         printf("Enter Data:");
-        scanf("%s", ptr->data);
-        int count = 0;
-        while (ptr->data[count] != '\0') count++;
-        ptr->size = count;
+        scanf("%s", ptr->data); // Enter data
     }
     return ptr; // Return pointer to the new item
 }
