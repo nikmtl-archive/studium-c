@@ -20,11 +20,11 @@ int main(){
     // 1-2-3 = -4
    result=a<<b<<c;
    printf("result is %d\n", result);
-   // 1<<2<<3 = 1<<5 = 32
+   // 1<<2<<3 = 32          because 1<<2 = 4 and 4<<3 = 32
    result=d/b/b;
    printf("result is %d\n", result);
    // 4/2/2 = 1
-   result=a>b? b>c? a : b : c;
+   result=a>b? (b>c? a : b) : c;
    printf("result is %d\n", result);
     // 1>2? 2>3? 1 : 2 : 3 = 3
 

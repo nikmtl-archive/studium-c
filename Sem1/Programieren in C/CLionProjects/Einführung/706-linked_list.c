@@ -23,7 +23,7 @@
 ✓  TO DO 5: Change the program such that the memory required for 'data' can be allocated flexibly:
             in struct: unsigned char *data;
 	        ptr->data=malloc(ptr->size*sizeof(unsigned char)); // Remember to check for NULL Pointer
-   TO DO 6: (optional) Write a function delete_item(...) to delete an item from the list.
+✓  TO DO 6: (optional) Write a function delete_item(...) to delete an item from the list.
    TO DO 7: (optional) Experiment with 'memory leaks': 
             - Increase the size of the payload. 
 			- 'Forget' in the delete function to free the memory correctly.
@@ -36,11 +36,11 @@
 
 // Data structure of the individual items in the list.
 struct myListItemStruct {
-    int guid; // a unique id to identify the list item
-    char name[128]; // a name to represent the item
-    unsigned char *data; // arbitrary data 'payload'
-    int size; // size of data
-    struct myListItemStruct *next_item; // pointer to next item
+    int guid;                               // a unique id to identify the list item
+    char name[128];                         // a name to represent the item
+    unsigned char *data;                    // arbitrary data 'payload'
+    int size;                               // size of data
+    struct myListItemStruct *next_item;     // pointer to next item
 };
 
 // Define an own type for shorter declarations
@@ -57,15 +57,18 @@ itemType *create_item() {
         ptr->guid = guid_ctr++; // Generate a unique ID
         printf("Enter name:");
         scanf("%s", ptr->name); // Enter a name
-        printf("Enter size of data:");
-        scanf("%d", &ptr->size); // Enter size of data
-        ptr->data = malloc(ptr->size * sizeof(unsigned char)); // Allocate memory for the data payload
+        ptr->data = malloc(10000 * sizeof(unsigned char)); // Allocate memory for the data payload
         if (ptr->data == NULL) {
             free(ptr); // Free the memory of the list item
             return NULL; // Return NULL, if memory allocation failed
         }
         printf("Enter Data:");
         scanf("%s", ptr->data); // Enter data
+        //get the size of the data by iterating through the data to find the null terminator
+        for (ptr->size = 0; ptr->data[ptr->size] != '\0'; ptr->size++) {}
+
+        ptr->next_item = NULL; // Initialize the pointer to the next item
+
     }
     return ptr; // Return pointer to the new item
 }
@@ -100,7 +103,7 @@ itemType *find_item(int guid, itemType *list_start) {
     itemType *current = list_start;
     while (current != NULL) {
         if (current->guid == guid) return current;
-        current->next_item;
+        current = current->next_item;
     }
     return NULL;
 }
@@ -109,17 +112,29 @@ itemType *find_item(int guid, itemType *list_start) {
 // The chaining of the previous and next element has to be done
 // by the caller.
 itemType *simple_delete_item(itemType *item) {
+    itemType *next = item->next_item;
+    free(item->data); // Free the memory of the data payload
+    free(item); // Free the memory of the list item
+    return next;
 }
 
 // Complete delete item
 // Deletes item 'to_delete' from the 'list'
 // return 0, if the item does not exist in the list, otherwise 1
 int delete_item(itemType *to_delete, itemType **list_ptr) {
-    // TO DO: Check if list (i.e. *list_ptr) is not NULL
-    // TO DO: Check special case, if first list element is to be deleted
-    //        The list_ptr needs to be changed, to point to second list element
-    // TO DO: General case: move through list with a helper pointer
-    // TO DO: Don't forget to free the memory of the list element (TODO5: and its data payload)
+    if (*list_ptr == NULL) return 0;
+    if (*list_ptr == to_delete) {
+        *list_ptr = simple_delete_item(to_delete);
+        return 1;
+    }
+    itemType *current = *list_ptr;
+    while (current->next_item != NULL) {
+        if (current->next_item == to_delete) {
+            current->next_item = simple_delete_item(to_delete);
+            return 1;
+        }
+        current = current->next_item;
+    }
 }
 
 
@@ -133,8 +148,16 @@ int main() {
     insert_item(current, &my_list);
     current = create_item();
     insert_item(current, &my_list);
-    current = create_item();
-    insert_item(current, &my_list);
 
     print_items(my_list);
+
+    printf("delete item with guid: ");
+    int guid;
+    scanf("%d", &guid);
+    printf("Deleting item with guid %d\n", guid);
+    current = find_item(guid, my_list);
+    printf("Item found: %p\n", current);
+    delete_item(current, &my_list);
+    print_items(my_list);
+
 }

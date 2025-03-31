@@ -7,5 +7,8 @@ add_executable(untitled
         702-pointers.c
         703-malloc_eratosthenes.c
         706-linked_list.c
+        test.c
+        201-int_overflow.c
+        203-ascii_table.c
 
 )

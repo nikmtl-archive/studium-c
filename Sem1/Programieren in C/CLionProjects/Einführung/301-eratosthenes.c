@@ -6,7 +6,7 @@
 */
 #include <stdio.h>
 
-#define MAX 100000
+#define MAX 1000000
 
 int main(){
 
@@ -28,14 +28,16 @@ int main(){
 
 
    //find the prime numbers
-   for(i=2; i<=n; i++)
-      for(j=2*i; j<=n; j=j+i)
+   for(i=2; i<=n; i++){
+      for(j=2*i; j<=n; j+=i){
          is_prime[j] = 0;
-
+      }
+   }
 
    //print the prime numbers
    printf("Prime numbers are: ");
-   for(i=2; i<n; i=i+1)
+   for(i=2; i<n; i=i+1){
       if(is_prime[i]>0)
-         printf("%d ",i);  
+         printf("%d ",i);
+   }
 }

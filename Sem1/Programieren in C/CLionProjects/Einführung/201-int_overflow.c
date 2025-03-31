@@ -23,7 +23,7 @@ int main() {
       if(old_c>c) { // execute the following code in { ... } if condition is true
 	     printf("char  overflow %d -> %d \n", old_c, c);
       }
-      // printf format strings:  
+      // printf format strings:
       // char, short, int: "%d"
       // long: "%ld"
       // unsigned int: "%u"

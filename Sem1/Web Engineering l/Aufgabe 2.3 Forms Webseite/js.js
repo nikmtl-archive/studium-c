@@ -129,3 +129,10 @@ function printEntries() {
         printEntry(entry);
     });
 }
+
+
+
+//dezimal to hex
+function dec2hex(dec) {
+    return ('0' + dec.toString(16).toUperCase()).slice(-2);
+}
